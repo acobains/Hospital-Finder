@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <string name="app_name">Hospital Finder</string>
+        <string name="action_settings">Settings</string>
+        <string name="hello_world">Hello world!</string>
+        <string name="Peta">Peta</string>
+        <string name="Rumah_Sakit">Rumah Sakit :</string>
+        <string name="Alamat">Alamat :</string>
+        <string name="Nomer_Telepon">Nomer Telepon :</string>
+        <string name="Jakbar">Daerah Jakarta Barat</string>
+        <string name="Jakpus">Daerah Jakarta Pusat</string>
+        <string name="Jaksel">Daerah Jakarta Selatan</string>
+        <string name="Jaktim">Daerah Jakarta Timur</string>
+        <string name="Jakut">Daerah Jakarta Utara</string>
+        <string name="Panggil">Panggil</string>
+        <string name="Bantuan">Bantuan</string>
+        <string name="Info">Info</string>
+        <color name="white">#ffffff</color>
+        <color name="black">#000000</color>
+    </resources>

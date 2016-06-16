@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/background_adp"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/btnPeta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_adp"
+        android:text="@string/Peta"
+        android:textColor="@color/black"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/btnBantuan"
+        android:layout_alignStart="@+id/btnBantuan"
+        android:layout_marginBottom="60dp"
+        android:layout_gravity="left"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnBantuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_adp"
+        android:text="@string/Bantuan"
+        android:textColor="@color/black"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnPanggil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_adp"
+        android:text="Panggil"
+        android:textColor="@color/black"
+        android:layout_alignTop="@+id/btnPeta"
+        android:layout_alignLeft="@+id/btnInfo"
+        android:layout_alignStart="@+id/btnInfo"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_adp"
+        android:text="Info"
+        android:textColor="@color/black"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textStyle="bold" />
+
+</RelativeLayout>
