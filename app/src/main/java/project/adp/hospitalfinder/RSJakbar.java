@@ -33,13 +33,14 @@ public class RSJakbar extends ListActivity {
             {"RSKB Cinta Kasih Tzu Chi", "02155963680" },
             {"RS Bhakti Mulia", "0215481625" },
             {"RSIA Aries", "0216496524" },
-            {"RSJ Dr. Soeharto Heerjan", "0215682841" } };
+            {"RSJ Dr. Soeharto Heerjan", "0215682841" },
+            {"RS Sumber Waras", "0215682011" } };
     //Buat arrray 1 dimensi untuk keperluan pembuatan menu list provider taxi
     private String[] jakbar_name = {"RSAB Harapan Kita", "RS Kanker Dharmais", "RS Pelni Petamburan",
             "RS Siloam Kebon Jeruk", "RS Patria IKKT", "RS Medika Permata Hijau",
             "RS Hermina Daan Mogot", "RS Royal Taruma", "RS Bina Sehat Mandiri", "RS Puri Indah",
             "RSUD Cengkareng", "RS Grha Kedoya", "RS Jakarta Eye Center Kedoya", "RS Jantung Harapan Kita",
-            "RSKB Cinta Kasih Tzu Chi", "RS Bhakti Mulia", "RSIA Aries", "RSJ Dr. Soeharto Heerjan", "Exit"};
+            "RSKB Cinta Kasih Tzu Chi", "RS Bhakti Mulia", "RSIA Aries", "RSJ Dr. Soeharto Heerjan", "RS Sumber Waras", "Exit"};
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -66,7 +67,7 @@ public class RSJakbar extends ListActivity {
         if (pilihan.equals("Exit")) {
             finish();
         } else {// pilihan != exit maka akan memanggil method callTaxi
-            callTaxi(pilihan);
+            callJakbar(pilihan);
         }
     }
 
@@ -74,7 +75,7 @@ public class RSJakbar extends ListActivity {
      * Launches the activity to make phone call to taxi provider based on
      * selected taxi
      */
-    protected void callTaxi(String pilihan) {
+    protected void callJakbar(String pilihan) {
         try {
             // Intent digunakan untuk sebagai pengenal suatu activity untuk
             // membuat panggilan telepon
