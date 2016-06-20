@@ -10,6 +10,9 @@ import android.net.Uri;
 import android.content.Intent;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.widget.DialogTitle;
+import android.view.Gravity;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentActivity;
@@ -39,20 +42,19 @@ public class Peta extends FragmentActivity {
 
         if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
             final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder
-                    .setTitle("Alert")
-                    .setMessage("GPS tidak aktif, Mohon aktifkan GPS anda")
-                    .setCancelable(false)
-                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            builder.setMessage("GPS anda tidak aktif, Mohon aktifkan GPS anda");
+            builder.setCancelable(false);
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         public void onClick( final DialogInterface dialog, final int id) {
                             startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
                         }
                     });
-            final AlertDialog alert = builder.create();
-            alert.show();
-        }
-        else
-        {
+            AlertDialog dialog = builder.show();
+            // Must call show() prior to fetching text view (ini bikin center)
+            TextView messageView = (TextView)dialog.findViewById(android.R.id.message);
+            messageView.setGravity(Gravity.CENTER);
+            }
+        else {
             Toast.makeText(getApplicationContext(), "GPS Aktif", Toast.LENGTH_LONG).show();
         }
 //sampe sini nih broooooooooooooooooooooooooooooooooooooooooooooooooo
@@ -474,6 +476,14 @@ public class Peta extends FragmentActivity {
         markerSoehartoHeerjan.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
         myMap.addMarker(markerSoehartoHeerjan);
 
+        LatLng sumberwaras = new LatLng(-6.167377, 106.798297);
+        MarkerOptions markerSumberWaras = new MarkerOptions();
+        markerSumberWaras.position(sumberwaras);
+        markerSumberWaras.title("RS Sumber Waras");
+        markerSumberWaras.snippet("RS Sumber Waras");
+        markerSumberWaras.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+        myMap.addMarker(markerSumberWaras);
+
         //==================== Jakarta Selatan ====================
 
         LatLng agung = new LatLng(-6.209198, 106.847435);
@@ -887,7 +897,7 @@ public class Peta extends FragmentActivity {
         markerAbdiWaluyo.position(abdiwaluyo);
         markerAbdiWaluyo.title("RS Abdi Waluyo");
         markerAbdiWaluyo.snippet("RS Abdi Waluyo Jakarta");
-        markerAbdiWaluyo.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerAbdiWaluyo.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerAbdiWaluyo);
 
         LatLng bersalinbudikemuliaan = new LatLng(-6.180532, 106.818362);
@@ -895,7 +905,7 @@ public class Peta extends FragmentActivity {
         markerBersalinBudiKemuliaan.position(bersalinbudikemuliaan);
         markerBersalinBudiKemuliaan.title("RSIA Budi Kemuliaan");
         markerBersalinBudiKemuliaan.snippet("RS Ibu & Anak Budi Kemuliaan");
-        markerBersalinBudiKemuliaan.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerBersalinBudiKemuliaan.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerBersalinBudiKemuliaan);
 
         LatLng bunda = new LatLng(-6.196123, 106.836490);
@@ -903,7 +913,7 @@ public class Peta extends FragmentActivity {
         markerBunda.position(bunda);
         markerBunda.title("RSIA Bunda");
         markerBunda.snippet("RS Ibu & Anak Bunda Jakarta Pusat");
-        markerBunda.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerBunda.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerBunda);
 
         LatLng evasari = new LatLng(-6.193567, 106.859729);
@@ -911,7 +921,7 @@ public class Peta extends FragmentActivity {
         markerEvasari.position(evasari);
         markerEvasari.title("RSIA Evasari");
         markerEvasari.snippet("RS Ibu dan Anak Evasari");
-        markerEvasari.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerEvasari.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerEvasari);
 
         LatLng husada = new LatLng(-6.147486, 106.829290);
@@ -919,7 +929,7 @@ public class Peta extends FragmentActivity {
         markerHusada.position(husada);
         markerHusada.title("RS Husada");
         markerHusada.snippet("RS Husada Jakarta");
-        markerHusada.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerHusada.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerHusada);
 
         LatLng islam = new LatLng(-6.170301, 106.870694);
@@ -927,7 +937,7 @@ public class Peta extends FragmentActivity {
         markerIslam.position(islam);
         markerIslam.title("RS Islam Jakarta Cempaka Putih");
         markerIslam.snippet("RS Islam Jakarta Cempaka Putih ");
-        markerIslam.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerIslam.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerIslam);
 
         LatLng jec = new LatLng(-6.198357, 106.836982);
@@ -935,7 +945,7 @@ public class Peta extends FragmentActivity {
         markerJec.position(jec);
         markerJec.title("RS Jakarta Eye Center Menteng");
         markerJec.snippet("Jakarta Eye Center Menteng (JEC)");
-        markerJec.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerJec.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerJec);
 
         LatLng proklamasi = new LatLng(-6.202211, 106.846998);
@@ -943,7 +953,7 @@ public class Peta extends FragmentActivity {
         markerProklamasi.position(proklamasi);
         markerProklamasi.title("RSK THT-Bedah Proklamasi");
         markerProklamasi.snippet("RS Khusus THT-Bedah (KL) Proklamasi");
-        markerProklamasi.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerProklamasi.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerProklamasi);
 
         LatLng estetika = new LatLng(-6.199368, 106.837314);
@@ -951,7 +961,7 @@ public class Peta extends FragmentActivity {
         markerEstetika.position(estetika);
         markerEstetika.title("RSK Bedah Bina Estetika");
         markerEstetika.snippet("RS Khusus Bedah Bina Estetika");
-        markerEstetika.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerEstetika.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerEstetika);
 
         LatLng nizar = new LatLng(-6.171279, 106.815351);
@@ -959,7 +969,7 @@ public class Peta extends FragmentActivity {
         markerNizar.position(nizar);
         markerNizar.title("RSK THT Prof. Nizar");
         markerNizar.snippet("RS Khusus Prof. Nizar");
-        markerNizar.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerNizar.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerNizar);
 
         LatLng kramat128 = new LatLng(-6.185492, 106.844060);
@@ -967,7 +977,7 @@ public class Peta extends FragmentActivity {
         markerKramat128.position(kramat128);
         markerKramat128.title("RS Kramat 128");
         markerKramat128.snippet("RS Kramat 128 Jakarta");
-        markerKramat128.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerKramat128.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerKramat128);
 
         LatLng mhtahmrin = new LatLng(-6.193588, 106.851987);
@@ -975,7 +985,7 @@ public class Peta extends FragmentActivity {
         markerMHThamrin.position(mhtahmrin);
         markerMHThamrin.title("RS MH Thamrin Salemba");
         markerMHThamrin.snippet("RS Muhammad Husni Thamrin Salemba");
-        markerMHThamrin.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerMHThamrin.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerMHThamrin);
 
         LatLng mitrakemayoran = new LatLng(-6.151954, 106.858539);
@@ -983,7 +993,7 @@ public class Peta extends FragmentActivity {
         markerMitraKemayoran.position(mitrakemayoran);
         markerMitraKemayoran.title("RS Mitra Kemayoran");
         markerMitraKemayoran.snippet("RS Mitra Kemayoran Jakarta");
-        markerMitraKemayoran.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerMitraKemayoran.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerMitraKemayoran);
 
         LatLng mitramentengabadi = new LatLng(-6.187045, 106.838360);
@@ -991,7 +1001,7 @@ public class Peta extends FragmentActivity {
         markerMitraMentengAbadi.position(mitramentengabadi);
         markerMitraMentengAbadi.title("RS Menteng Mitra Afia");
         markerMitraMentengAbadi.snippet("RS Menteng Mitra Afia");
-        markerMitraMentengAbadi.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerMitraMentengAbadi.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerMitraMentengAbadi);
 
         LatLng siloamsemanggi = new LatLng(-6.219025, 106.817172);
@@ -999,7 +1009,7 @@ public class Peta extends FragmentActivity {
         markerSiloamSemanggi.position(siloamsemanggi);
         markerSiloamSemanggi.title("RS MRCCC Siloam Semanggi");
         markerSiloamSemanggi.snippet("RS MRCCC Siloam Semanggi");
-        markerSiloamSemanggi.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerSiloamSemanggi.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerSiloamSemanggi);
 
         LatLng pgicikini = new LatLng(-6.191309, 106.842021);
@@ -1007,7 +1017,7 @@ public class Peta extends FragmentActivity {
         markerPGICikini.position(pgicikini);
         markerPGICikini.title("RS PGI Cikini");
         markerPGICikini.snippet("RS PGI Cikini");
-        markerPGICikini.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerPGICikini.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerPGICikini);
 
         LatLng gatot = new LatLng(-6.176517, 106.837575);
@@ -1015,7 +1025,7 @@ public class Peta extends FragmentActivity {
         markerGatot.position(gatot);
         markerGatot.title("RSPAD Gatot Subroto");
         markerGatot.snippet("RS Pusat Angkatan Darat Gatot Subroto");
-        markerGatot.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerGatot.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerGatot);
 
         LatLng cipto = new LatLng(-6.197045, 106.846719);
@@ -1023,7 +1033,7 @@ public class Peta extends FragmentActivity {
         markerCipto.position(cipto);
         markerCipto.title("RSU Cipto Mangunkusumo RSCM");
         markerCipto.snippet("RS Umum Pusat Nasional Dr. Cipto Mangunkusumo");
-        markerCipto.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerCipto.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerCipto);
 
         LatLng sahidsahirman = new LatLng(-6.209564, 106.819234);
@@ -1031,7 +1041,7 @@ public class Peta extends FragmentActivity {
         markerSahidSahirman.position(sahidsahirman);
         markerSahidSahirman.title("RS Sahid Sahirman Memorial");
         markerSahidSahirman.snippet("RS Sahid Sahirman Memorial");
-        markerSahidSahirman.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerSahidSahirman.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerSahidSahirman);
 
         LatLng stcarolus = new LatLng(-6.195391, 106.851231);
@@ -1039,7 +1049,7 @@ public class Peta extends FragmentActivity {
         markerSTCarolus.position(stcarolus);
         markerSTCarolus.title("RS Sint Carolus");
         markerSTCarolus.snippet("RS Sint Carolus Jakarta");
-        markerSTCarolus.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerSTCarolus.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerSTCarolus);
 
         LatLng tambak = new LatLng(-6.206261, 106.848614);
@@ -1047,7 +1057,7 @@ public class Peta extends FragmentActivity {
         markertambak.position(tambak);
         markertambak.title("RSIA Tambak");
         markertambak.snippet("RS Ibu & Anak Tambak");
-        markertambak.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markertambak.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markertambak);
 
         LatLng mridwanmeuraksa = new LatLng(-6.191566, 106.847043);
@@ -1055,7 +1065,7 @@ public class Peta extends FragmentActivity {
         markerMRidwanMeuraksa.position(mridwanmeuraksa);
         markerMRidwanMeuraksa.title("RS TK. II Moh. Ridwan Meuraksa");
         markerMRidwanMeuraksa.snippet("RS TK. II Mohammad Ridwan Meuraksa");
-        markerMRidwanMeuraksa.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerMRidwanMeuraksa.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerMRidwanMeuraksa);
 
         LatLng mintoharjo = new LatLng(-6.210919, 106.812007);
@@ -1063,7 +1073,7 @@ public class Peta extends FragmentActivity {
         markerMintoharjo.position(mintoharjo);
         markerMintoharjo.title("RS TNI AL Dr. Mintoharjo");
         markerMintoharjo.snippet("RS TNI AL Dr. Mintoharjo Jakarta");
-        markerMintoharjo.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerMintoharjo.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerMintoharjo);
 
         LatLng tarakan = new LatLng(-6.171614, 106.810273);
@@ -1071,7 +1081,7 @@ public class Peta extends FragmentActivity {
         markerTarakan.position(tarakan);
         markerTarakan.title("RSUD Tarakan");
         markerTarakan.snippet("RS Umum Daerah Tarakan");
-        markerTarakan.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerTarakan.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerTarakan);
 
         LatLng pertamina = new LatLng(-6.173198, 106.876066);
@@ -1079,7 +1089,7 @@ public class Peta extends FragmentActivity {
         markerPertamina.position(pertamina);
         markerPertamina.title("RS Pertamina Jaya");
         markerPertamina.snippet("Pertamina Jaya Hospital RSJP");
-        markerPertamina.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerPertamina.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         myMap.addMarker(markerPertamina);
 
 
