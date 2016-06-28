@@ -1,6 +1,5 @@
 package project.adp.hospitalfinder;
 
-        import android.media.Image;
         import android.os.Bundle;
         import android.app.Activity;
         import android.app.AlertDialog;
@@ -12,7 +11,6 @@ package project.adp.hospitalfinder;
         import android.content.Intent;
         import android.content.DialogInterface;
         import android.view.KeyEvent;
-        import android.widget.ImageView;
         import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -144,7 +142,7 @@ public class MainActivity extends Activity {
         builder.setMessage("Jakarta Hospital Finder adalah " +
                 "aplikasi pada perangkat mobile berbasis Android " +
                 "yang memudahkan para pengguna untuk menemukan " +
-                "lokasi serta menghubungi Rumah Sakit yang ada di daerah Jakarta secara cepat."+
+                "lokasi serta menghubungi Rumah Sakit yang ada di daerah Jakarta dengan cepat."+
                 "\n\n\n"+
                 "Nama : Angga Dwi Prasetya\n"+
                 "NIM : 1186040007 \n"+
