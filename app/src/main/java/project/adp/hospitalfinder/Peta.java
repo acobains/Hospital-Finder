@@ -70,7 +70,7 @@ public class Peta extends FragmentActivity {
         markerHarapanJayakarta.position(harapanjayakarta);
         markerHarapanJayakarta.title("RS Harapan Jayakarta");
         markerHarapanJayakarta.snippet("RS Harapan Jayakarta");
-        markerHarapanJayakarta.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
+        markerHarapanJayakarta.icon(BitmapDescriptorFactory.fromResource(R.drawable.merah));
         myMap.addMarker(markerHarapanJayakarta);
 
         LatLng harum = new LatLng(-6.248048, 106.909502);
